@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rocation Remover</title>
+    </head>
+<body>
+    <h1>Exif情報を削除したい画像をアップロードしてください</h1>
+
+    <!--画像ファイルを複数枚アップロードする部分-->
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" id="example" accept=".png, .jpg, .jpeg" multiple required>
+
+        <!--プレビュー画像を追加-->
+        <script src="./show-img.js">
+        </script>
+
+        <div id="preview">
+        </div>
+
+        <button type="submit">送信する</button>
+    </form>
+
+    <button type="submit">Exif削除</button>
+    <p></p>
+    <img src="">
+
+</body>
+</html>
+
