@@ -10,7 +10,7 @@ function previewFile(file) {
       const img = document.createElement("img"); // img要素を作成
       img.src = imageUrl; // 画像のURLをimg要素にセット
       preview.appendChild(img); // #previewの中に追加
-      // console.log(imageUrl);
+      console.log(imageUrl);
     }
   
     // いざファイルを読み込む
