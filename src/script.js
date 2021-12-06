@@ -10,7 +10,7 @@ function previewFile(file) {
       const img = document.createElement("img"); // img要素を作成
       img.src = imageUrl; // 画像のURLをimg要素にセット
       preview.appendChild(img); // #previewの中に追加
-      // console.log(imageUrl);
+      console.log(imageUrl);
     }
   
     // いざファイルを読み込む
@@ -43,4 +43,16 @@ function previewFile(file) {
 
     // Base64に変換して値を返す
     return canvas.toDataURL(mime_type);
-}
+  }
+
+
+  //base64形式の画像をimgタグのsrcに設定する関数
+  function SetOnSource() { 
+    //base64形式の画像を取得
+    const picture = ImageToBase64();
+
+    //表示先のidを取得して、そこにbase64形式の画像を設定
+    const outputPicture = document.getElementById('output_picture');
+    outputPicture.src = picture;
+
+  }
