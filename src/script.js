@@ -9,6 +9,7 @@ function previewFile(file) {
       const imageUrl = e.target.result; // 画像のURLはevent.target.resultで呼び出せる
       const img = document.createElement("img"); // img要素を作成
       img.src = imageUrl; // 画像のURLをimg要素にセット
+      img.id = "previewImage";
       preview.appendChild(img); // #previewの中に追加
       // console.log(imageUrl);
     }
@@ -31,8 +32,9 @@ function previewFile(file) {
 
 
   //画像をbase64に変換する関数
-  function ImageToBase64(img, mime_type) {
+  function ImageToBase64(mime_type) {
     // HTMLで使えるcanvasタグを生成して、画像サイズに調整
+    const img = document.getElementById('previewImage')
     const canvas = document.createElement('canvas');
     canvas.width  = img.width;
     canvas.height = img.height;
@@ -40,6 +42,42 @@ function previewFile(file) {
     // canvasタグに画像を描画
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
+
+    // Base64に変換して値を返す
+    return canvas.toDataURL(mime_type);
+  }
+
+
+  //base64形式の画像をimgタグのsrcに設定する関数
+function SetOnSource(picture) { 
+    //表示先のidを取得して、そこにbase64形式の画像を設定
+    const outputPicture = document.getElementById('output_picture');
+    outputPicture.src = picture;
+    // console.log(outputPicture)
+}
+
+  // 実行ボタン押されたときにbase64形式に変換した画像を表示する関数書いてね♡
+function runButtonOnClicked() { 
+  const base64Image = ImageToBase64();
+  // const image = test();
+  SetOnSource(base64Image);
+}
+
+
+
+
+//諸々のテスト用
+function test() {
+  const mime_type = "image/jpeg"
+    // HTMLで使えるcanvasタグを生成して、画像サイズに調整
+    const preview = document.getElementById('previewImage')
+    const canvas = document.createElement('canvas');
+    canvas.width  = preview.width;
+    canvas.height = preview.height;
+
+    // canvasタグに画像を描画
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(preview, 0, 0);
 
     // Base64に変換して値を返す
     return canvas.toDataURL(mime_type);
