@@ -34,3 +34,19 @@ function previewFile(file) {
     }
   }
   fileInput.addEventListener('change', handleFileSelect);
+
+
+  //画像をbase64に変換する関数
+  function ImageToBase64(img, mime_type) {
+    // HTMLで使えるcanvasタグを生成して、画像サイズに調整
+    const canvas = document.createElement('canvas');
+    canvas.width  = img.width;
+    canvas.height = img.height;
+
+    // canvasタグに画像を描画
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+
+    // Base64に変換して値を返す
+    return canvas.toDataURL(mime_type);
+}
