@@ -12,24 +12,19 @@
     <h1>Exif情報を削除したい画像をアップロードしてください</h1>
 
     <!--画像ファイルを複数枚アップロードする部分-->
+    <input type="file" id="example" accept="image/jpeg">
 
-    <!-- 現状postやformタグを用いないで動作確認済み。 -->
-    <!-- <form method="POST" enctype="multipart/form-data"> -->
-        <input type="file" id="example" accept="image/jpeg">
+    <!--プレビュー画像を追加-->
+    <script src="./src/script.js">
+    </script>
 
-        <!--プレビュー画像を追加-->
-        <script src="./src/script.js">
-        </script>
+    <div id="preview">
+    </div>
+    <!-- <img id="preview"> -->
 
-        <div id="preview">
-        </div>
-        <!-- <img id="preview"> -->
+    <button id="run_button" onclick="runButtonOnClicked();">Exif削除</button>
 
-        <button id="run_button" onclick="runButtonOnClicked();">Exif削除</button>
-
-    <!-- </form> -->
-    <!-- <button type="submit">Exif削除</button> -->
-    
+        
     <p></p>
     <!-- ↓に削除後の画像を表示したい、base64形式の画像を表示すればいいはず -->
     <img src="" id="output_picture">
