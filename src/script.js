@@ -37,7 +37,7 @@ function previewFile(file) {
 
 
   //画像をbase64に変換する関数
-  function ImageToBase64(mime_type) {
+  function ImageToBase64() {
     // HTMLで使えるcanvasタグを生成して、画像サイズに調整
     const img = document.getElementById('previewImage')
     const canvas = document.createElement('canvas');
@@ -49,7 +49,7 @@ function previewFile(file) {
     ctx.drawImage(img, 0, 0);
 
     // Base64に変換して値を返す
-    return canvas.toDataURL(mime_type);
+    return canvas.toDataURL("image/jpeg");
   }
 
 
