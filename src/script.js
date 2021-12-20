@@ -41,8 +41,9 @@ function previewFile(file) {
     // HTMLで使えるcanvasタグを生成して、画像サイズに調整
     const img = document.getElementById('previewImage')
     const canvas = document.createElement('canvas');
-    canvas.width  = img.width;
-    canvas.height = img.height;
+    //元画像の幅と高さをcanvasに設定
+    canvas.width  = img.naturalWidth;
+    canvas.height = img.naturalHeight;
 
     // canvasタグに画像を描画
     const ctx = canvas.getContext('2d');
