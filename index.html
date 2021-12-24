@@ -4,6 +4,7 @@
     <head>
         <title>Location Remover</title>
         <link rel="stylesheet" href="src/style.css">
+        <script src="./src/script.js" defer></script>
     </head>
 <body>
     <header>
@@ -12,17 +13,14 @@
     <h1>Exif情報を削除したい画像をアップロードしてください</h1>
 
     <!--画像ファイルを複数枚アップロードする部分-->
-    <input type="file" id="example" accept="image/jpeg">
+    <input type="file" id="example" accept="image/jpeg" disabled>
 
     <!--プレビュー画像を追加-->
-    <script src="./src/script.js">
-    </script>
-
     <div id="preview">
     </div>
     <!-- <img id="preview"> -->
 
-    <button id="run_button" onclick="runButtonOnClicked();">Exif削除</button>
+    <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
 
         
     <p></p>
