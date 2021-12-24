@@ -21,7 +21,7 @@ function previewFile(file) {
   
     // いざファイルを読み込む
     reader.readAsDataURL(file);
-  }
+}
   
   
   // <input>でファイルが選択されたときの処理
@@ -88,3 +88,7 @@ function test() {
     // Base64に変換して値を返す
     return canvas.toDataURL(mime_type);
 }
+
+//script.jsを読み込み終わってからinput,Button要素を無効化を削除
+document.getElementById('example').removeAttribute('disabled');
+document.getElementById('run_button').removeAttribute('disabled');
