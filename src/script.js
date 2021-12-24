@@ -21,6 +21,8 @@ function previewFile(file) {
   
     // いざファイルを読み込む
     reader.readAsDataURL(file);
+    //画像をアップロードし終わってからButton要素を無効化を削除
+    document.getElementById('run_button').removeAttribute('disabled');
 }
   
   
@@ -89,6 +91,5 @@ function test() {
     return canvas.toDataURL(mime_type);
 }
 
-//script.jsを読み込み終わってからinput,Button要素を無効化を削除
+//script.jsを読み込み終わってからinput要素を無効化を削除
 document.getElementById('example').removeAttribute('disabled');
-document.getElementById('run_button').removeAttribute('disabled');
