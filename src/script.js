@@ -76,6 +76,23 @@ function test() {
     return canvas.toDataURL(mime_type);
 }
 
+
+function twitter() {
+  const tweet_String_Content = 'テステステスト';
+  window.open('https://twitter.com/share?text=' + tweet_String_Content);
+}
+
+
+function share() {
+  navigator.share({
+    text:'テスーーート',
+    title:document.title,
+    url:location.href,
+  })
+  .then(() => alert('シェアしました'))
+  .catch((e) => alert('シェアに失敗しました'))
+}
+
   // <input>でファイルが選択されたときの処理
   const fileInput = document.getElementById('example');
   //changeイベントで呼び出す関数
