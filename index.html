@@ -10,26 +10,27 @@
     <header>
         <h1 id="header">Location Remover</h1>
     </header>
-    <h1>Exif情報を削除したい画像をアップロードしてください</h1>
+    <div>
+        <h1 class="aaa">Exif情報を削除したい画像をアップロードしてください</h1>
 
     <!--画像ファイルを複数枚アップロードする部分-->
-    <input type="file" id="example" accept="image/jpeg" disabled>
+        <input type="file" id="example" accept="image/jpeg" disabled>
 
     <!--プレビュー画像を追加-->
-    <div id="preview">
-    </div>
+        <div id="preview">
+        </div>
     <!-- <img id="preview"> -->
 
-    <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
+        <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
 
         
-    <p></p>
+        <p></p>
     <!-- ↓に削除後の画像を表示したい、base64形式の画像を表示すればいいはず -->
-    <img src="" id="output_picture">
+        <img src="" id="output_picture">
 
     
     <!-- <img src="2021-11-06 13-31-12.jpeg" class="aaaa"> -->
-    
+    </div>
     
 </body>
 </html>
