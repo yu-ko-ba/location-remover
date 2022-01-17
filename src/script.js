@@ -16,13 +16,14 @@ function previewFile(file) {
       img.src = imageUrl; // 画像のURLをimg要素にセット
       img.id = "previewImage";
       preview.appendChild(img); // #previewの中に追加
-      console.log(imageUrl);
+      // console.log(imageUrl);
     }
   
     // いざファイルを読み込む
     reader.readAsDataURL(file);
     //画像をアップロードし終わってからButton要素を無効化を削除
     document.getElementById('run_button').removeAttribute('disabled');
+    document.getElementById('share').removeAttribute('disabled');
 }
 
   //画像をbase64に変換する関数
@@ -48,6 +49,7 @@ function SetOnSource(picture) {
     //表示先のidを取得して、そこにbase64形式の画像を設定
     const outputPicture = document.getElementById('output_picture');
     outputPicture.src = picture;
+    console.log(document.getElementById('output_picture').src)
     // console.log(outputPicture)
 }
 
@@ -76,22 +78,34 @@ function test() {
     return canvas.toDataURL(mime_type);
 }
 
-
+// Twitterに直接共有する(画像添付不可能かも)
 function twitter() {
   const tweet_String_Content = 'テステステスト';
   window.open('https://twitter.com/share?text=' + tweet_String_Content);
 }
 
 
-function share() {
+// シェア用ボタンの動作部分(画像を投稿するにはこれしかない？)
+async function share() {
+  const share_picture = document.getElementById('output_picture').src;
+
+  //base64形式の画像(URL)をBlob形式に変換
+  const blob = await(await fetch(share_picture)).blob();
+  // const blob = fetch(share_picture).blob();
+
+
+  // BlobをFileオブジェクトに変換
+  const imageFile = new File([blob], 'image.png', {type:blob.type});
+
+  // Web Share APIを呼び出す
   navigator.share({
     text:'テスーーート',
-    title:document.title,
-    url:location.href,
+    files:[imageFile],
   })
   .then(() => alert('シェアしました'))
-  .catch((e) => alert('シェアに失敗しました'))
+  .catch((error) => alert('シェアに失敗しました'))
 }
+
 
   // <input>でファイルが選択されたときの処理
   const fileInput = document.getElementById('example');
