@@ -24,19 +24,6 @@ function previewFile(file) {
     //画像をアップロードし終わってからButton要素を無効化を削除
     document.getElementById('run_button').removeAttribute('disabled');
 }
-  
-  
-  // <input>でファイルが選択されたときの処理
-  const fileInput = document.getElementById('example');
-  //changeイベントで呼び出す関数
-  const handleFileSelect = () => {
-    const files = fileInput.files;
-    for (let i = 0; i < files.length; i++) {
-      previewFile(files[i]); //1つ1つのファイルデータはfiles[i]で取得できる
-    }
-  }
-  fileInput.addEventListener('change', handleFileSelect);
-
 
   //画像をbase64に変換する関数
   function ImageToBase64() {
@@ -72,8 +59,6 @@ function runButtonOnClicked() {
 }
 
 
-
-
 //諸々のテスト用
 function test() {
   const mime_type = "image/jpeg"
@@ -90,6 +75,17 @@ function test() {
     // Base64に変換して値を返す
     return canvas.toDataURL(mime_type);
 }
+
+  // <input>でファイルが選択されたときの処理
+  const fileInput = document.getElementById('example');
+  //changeイベントで呼び出す関数
+  const handleFileSelect = () => {
+    const files = fileInput.files;
+    for (let i = 0; i < files.length; i++) {
+      previewFile(files[i]); //1つ1つのファイルデータはfiles[i]で取得できる
+    }
+  }
+  fileInput.addEventListener('change', handleFileSelect);
 
 //script.jsを読み込み終わってからinput要素を無効化を削除
 document.getElementById('example').removeAttribute('disabled');
