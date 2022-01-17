@@ -21,8 +21,10 @@ body {
     width: 10%;
 } */
 
-img{
-    width:10%
+#previewImage {
+    width: 25%;
 }
 
-
+#output_picture {
+    width: 80%;
+}
