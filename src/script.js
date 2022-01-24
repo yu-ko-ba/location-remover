@@ -99,7 +99,7 @@ async function share() {
 
   // Web Share APIを呼び出す
   navigator.share({
-    text:'テスーーート',
+    // text:'テスーーート',
     files:[imageFile],
   })
   .then(() => alert('シェアしました'))
