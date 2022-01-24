@@ -1,41 +1,32 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<html>
+<html lang="ja">
     <head>
         <title>Location Remover</title>
         <link rel="stylesheet" href="src/style.css">
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="icons/maskable_icon_x192.png">
         <script src="./src/script.js" defer></script>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#1565c0" />
     </head>
 <body>
     <header>
-        <h1>Location Remover</h1>
+        <h1 id="header">Location Remover</h1>
     </header>
-    <h1>Exif情報を削除したい画像をアップロードしてください</h1>
+    <h2 class="aaa">Exif情報を削除したい画像をアップロードしてください</h2>
 
-    <!--画像ファイルを複数枚アップロードする部分-->
     <input type="file" id="example" accept="image/jpeg" disabled>
 
-    <!--プレビュー画像を追加-->
-    <div id="preview">
-    </div>
-    <!-- <img id="preview"> -->
+    <!--プレビュー画像部-->
+    <div id="preview"></div>
 
     <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
 
-        
-    <p></p>
-    <!-- ↓に削除後の画像を表示したい、base64形式の画像を表示すればいいはず -->
+    <!-- 削除後の画像を表示 -->
     <img src="" id="output_picture">
 
-
-    <!-- Twitter共有ボタン(リンク直指定) -->
-    <button id="twitter" onclick="twitter()">Twitter共有</button>
     <!-- Web Share APIの利用 -->
     <button id="share" onclick="share()" disabled>シェアする</button>
-
-    <!-- <img src="2021-11-06 13-31-12.jpeg" class="aaaa"> -->
-    
-    
 </body>
 </html>
 
