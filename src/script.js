@@ -53,6 +53,14 @@ function runButtonOnClicked() {
 }
 
 
+// ServiceWorkerの登録をする
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+      .register('sw.js', {scope: '/location-remover/'})
+      .then(() => { console.log('Service Worker Registered'); });
+}
+
+
 // <input>でファイルが選択されたときの処理
 const fileInput = document.getElementById('example');
 //changeイベントで呼び出す関数
