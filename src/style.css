@@ -1,5 +1,7 @@
 body {
     margin: 0;
+
+    text-align: center;
 }
 
 #header {
@@ -8,8 +10,17 @@ body {
     padding: 10px;
 }
 
+.aaa {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
 #previewImage {
     width: 25%;
+    text-align: center;
 }
 
 #output_picture {
