@@ -16,7 +16,6 @@ function previewFile(file) {
     reader.readAsDataURL(file);
     //画像をアップロードし終わってからButton要素を無効化を削除
     document.getElementById('run_button').removeAttribute('disabled');
-    document.getElementById('share').removeAttribute('disabled');
 }
 
 
@@ -51,6 +50,7 @@ function SetOnSource(picture) {
 function runButtonOnClicked() { 
     const base64Image = ImageToBase64();
     SetOnSource(base64Image);
+    document.getElementById('share').removeAttribute('disabled');
 }
 
 
