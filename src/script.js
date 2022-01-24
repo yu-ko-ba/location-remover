@@ -19,6 +19,14 @@ function previewFile(file) {
 }
 
 
+function clearPreview() {
+    const preview = document.getElementById('preview');
+    while (preview.firstChild != null) {
+        preview.removeChild(preview.firstChild);
+    }
+}
+
+
 //画像をbase64に変換する関数
 function ImageToBase64() {
     // HTMLで使えるcanvasタグを生成して、画像サイズに調整
@@ -47,7 +55,7 @@ function SetOnSource(picture) {
 
 
 // 実行ボタン押されたときにbase64形式に変換した画像を表示する関数
-function runButtonOnClicked() { 
+function runButtonOnClicked() {
     const base64Image = ImageToBase64();
     SetOnSource(base64Image);
     document.getElementById('share').removeAttribute('disabled');
@@ -85,6 +93,8 @@ async function share() {
 const fileInput = document.getElementById('example');
 //changeイベントで呼び出す関数
 const handleFileSelect = () => {
+    clearPreview();
+
     const files = fileInput.files;
     for (let i = 0; i < files.length; i++) {
         previewFile(files[i]); //1つ1つのファイルデータはfiles[i]で取得できる
