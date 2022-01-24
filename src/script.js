@@ -78,7 +78,7 @@ async function share() {
     const blob = await(await fetch(share_picture)).blob();
 
     // BlobをFileオブジェクトに変換
-    const imageFile = new File([blob], 'image.jpg', {type:blob.type});
+    const imageFile = new File([blob], 'image.jpg', {type: "image/jpeg"});
 
     // Web Share APIを呼び出す
     navigator.share({
