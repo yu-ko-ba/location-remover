@@ -1,9 +1,7 @@
-/* form {
-    max-width: 100%;
-} */
-
 body {
     margin: 0;
+
+    text-align: center;
 }
 
 #header {
@@ -16,22 +14,13 @@ body {
     text-align: center;
 }
 
-/* form { 
-    width: 100%;
-} */
-
-
-/* .preview { 
-    text-align: center;
-} */
-
 div {
     text-align: center;
 }
 
 #previewImage {
     width: 25%;
-    
+    text-align: center;
 }
 
 #output_picture {
