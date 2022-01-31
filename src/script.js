@@ -70,25 +70,8 @@ if ('serviceWorker' in navigator) {
 }
 
 
-// シェア用ボタンの動作部分(画像を投稿するにはこれしかない？)
-async function share() {
-    const share_picture = document.getElementById('output_picture').src;
-
-    //base64形式の画像(URL)をBlob形式に変換
-    const blob = await(await fetch(share_picture)).blob();
-
-    // BlobをFileオブジェクトに変換
-    const imageFile = new File([blob], 'image.jpg', {type: "image/jpeg"});
-
-    // Web Share APIを呼び出す
-    if (navigator.share != null) {
-        navigator.share({
-            files:[imageFile],
-        })
-        .then(() => alert('シェアしました'))
-        .catch((error) => alert('シェアに失敗しました'))
-        } else {
-            alert(`\
+function showErrorAlert() {
+    alert(`\
 お使いのブラウザは共有機能に対応していません
 
 
@@ -110,7 +93,25 @@ async function share() {
 
 ※お使いのブラウザのバージョンが古い場合、動作確認済みのものであっても正常に機能しない場合があります。\
 `);
-        }
+}
+
+
+// シェア用ボタンの動作部分(画像を投稿するにはこれしかない？)
+async function share() {
+    const share_picture = document.getElementById('output_picture').src;
+
+    //base64形式の画像(URL)をBlob形式に変換
+    const blob = await(await fetch(share_picture)).blob();
+
+    // BlobをFileオブジェクトに変換
+    const imageFile = new File([blob], 'image.jpg', {type: "image/jpeg"});
+
+    // Web Share APIを呼び出す
+    try {
+        navigator.share({files: [imageFile]});
+    } catch (error) {
+        showErrorAlert();
+    }
 }
 
 
