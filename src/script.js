@@ -108,7 +108,7 @@ async function share() {
 
     // Web Share APIを呼び出す
     try {
-        navigator.share({files: [imageFile]});
+        await navigator.share({files: [imageFile]});
     } catch (error) {
         showErrorAlert();
     }
