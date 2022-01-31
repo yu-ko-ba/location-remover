@@ -106,7 +106,9 @@ async function share() {
   ・Google Chrome
 
   Mac
-  ・Safari\
+  ・Safari
+
+※お使いのブラウザのバージョンが古い場合、動作確認済みのものであっても正常に機能しない場合があります。\
 `);
         }
 }
