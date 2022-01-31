@@ -81,11 +81,34 @@ async function share() {
     const imageFile = new File([blob], 'image.jpg', {type: "image/jpeg"});
 
     // Web Share APIを呼び出す
-    navigator.share({
-        files:[imageFile],
-    })
+    if (navigator.share != null) {
+        navigator.share({
+            files:[imageFile],
+        })
         .then(() => alert('シェアしました'))
         .catch((error) => alert('シェアに失敗しました'))
+        } else {
+            alert(`\
+お使いのブラウザは共有機能に対応していません
+
+
+動作確認済みブラウザ
+  iPhone、iPad
+  ・Safari
+  ・Google Chrome
+  ・Firefox
+
+  Android
+  ・Google Chrome
+
+  Windows
+  ・Microsoft Edge
+  ・Google Chrome
+
+  Mac
+  ・Safari\
+`);
+        }
 }
 
 
