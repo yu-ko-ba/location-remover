@@ -78,23 +78,19 @@ function showErrorAlert() {
 お使いのブラウザは共有機能に対応していません
 
 
-動作確認済みブラウザ
+対応環境
   iPhone、iPad
-  ・Safari
-  ・Google Chrome
-  ・Firefox
+  ・iOS/iPadOS 15以上
 
   Android
-  ・Google Chrome
+  ・Google Chrome 79以上
 
   Windows
-  ・Microsoft Edge
-  ・Google Chrome
+  ・Microsoft Edge 89以上
+  ・Google Chrome 89以上
 
   Mac
-  ・Safari
-
-※お使いのブラウザのバージョンが古い場合、動作確認済みのものであっても正常に機能しない場合があります。\
+  ・Safari 15以上\
 `);
 }
 
