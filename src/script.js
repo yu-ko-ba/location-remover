@@ -54,11 +54,20 @@ function SetOnSource(picture) {
 }
 
 
+async function setDownloadLink(base64Image) {
+    const blobImage = await (await fetch(base64Image)).blob();
+    const downloadButton = document.getElementById('downloadButton');
+    downloadButton.href = window.URL.createObjectURL(blobImage);
+    downloadButton.removeAttribute('hidden');
+}
+
+
 // 実行ボタン押されたときにbase64形式に変換した画像を表示する関数
 function runButtonOnClicked() {
     const base64Image = ImageToBase64();
     SetOnSource(base64Image);
     document.getElementById('share').removeAttribute('disabled');
+    setDownloadLink(base64Image);
 }
 
 
