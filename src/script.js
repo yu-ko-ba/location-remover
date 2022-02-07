@@ -14,7 +14,7 @@ function previewFile(file) {
 
     // いざファイルを読み込む
     reader.readAsDataURL(file);
-    //画像をアップロードし終わってからButton要素を無効化を削除
+    // 画像をアップロードし終わってからButton要素を無効化を削除
     document.getElementById('run_button').removeAttribute('disabled');
 }
 
@@ -27,13 +27,13 @@ function clearPreview() {
 }
 
 
-//画像をbase64に変換する関数
+// 画像をbase64に変換する関数
 function ImageToBase64() {
     // HTMLで使えるcanvasタグを生成して、画像サイズに調整
     const img = document.getElementById('previewImage')
     const canvas = document.createElement('canvas');
 
-    //元画像の幅と高さをcanvasに設定
+    // 元画像の幅と高さをcanvasに設定
     canvas.width  = img.naturalWidth;
     canvas.height = img.naturalHeight;
 
@@ -46,9 +46,9 @@ function ImageToBase64() {
 }
 
 
-//base64形式の画像をimgタグのsrcに設定する関数
+// base64形式の画像をimgタグのsrcに設定する関数
 function SetOnSource(picture) { 
-    //表示先のidを取得して、そこにbase64形式の画像を設定
+    // 表示先のidを取得して、そこにbase64形式の画像を設定
     const outputPicture = document.getElementById('output_picture');
     outputPicture.src = picture;
 }
@@ -56,26 +56,20 @@ function SetOnSource(picture) {
 
 async function setDownloadLink(base64Image) {
     const blobImage = await (await fetch(base64Image)).blob();
-    const downloadButton = document.getElementById('downloadButton');
-    downloadButton.href = window.URL.createObjectURL(blobImage);
-    downloadButton.removeAttribute('hidden');
+    const downloadLink = document.getElementById('downloadLink');
+    downloadLink.href = window.URL.createObjectURL(blobImage);
+    downloadLink.removeAttribute('hidden');
 }
 
 
 // 実行ボタン押されたときにbase64形式に変換した画像を表示する関数
 function runButtonOnClicked() {
     const base64Image = ImageToBase64();
+
     SetOnSource(base64Image);
     document.getElementById('share').removeAttribute('disabled');
+
     setDownloadLink(base64Image);
-}
-
-
-// ServiceWorkerの登録をする
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-        .register('sw.js', {scope: '/location-remover/'})
-        .then(() => { console.log('Service Worker Registered'); });
 }
 
 
@@ -109,7 +103,7 @@ function showErrorAlert() {
 async function share() {
     const share_picture = document.getElementById('output_picture').src;
 
-    //base64形式の画像(URL)をBlob形式に変換
+    // base64形式の画像(URL)をBlob形式に変換
     const blob = await(await fetch(share_picture)).blob();
 
     // BlobをFileオブジェクトに変換
@@ -124,19 +118,25 @@ async function share() {
 }
 
 
+// ServiceWorkerの登録をする
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('sw.js', {scope: '/location-remover/'})
+        .then(() => { console.log('Service Worker Registered'); });
+}
+
 // <input>でファイルが選択されたときの処理
 const fileInput = document.getElementById('example');
-//changeイベントで呼び出す関数
+// changeイベントで呼び出す関数
 const handleFileSelect = () => {
     clearPreview();
 
     const files = fileInput.files;
     for (let i = 0; i < files.length; i++) {
-        previewFile(files[i]); //1つ1つのファイルデータはfiles[i]で取得できる
+        previewFile(files[i]); // 1つ1つのファイルデータはfiles[i]で取得できる
     }
 }
-
 fileInput.addEventListener('change', handleFileSelect);
 
-//script.jsを読み込み終わってからinput要素を無効化を削除
+// script.jsを読み込み終わってからinput要素を無効化を削除
 document.getElementById('example').removeAttribute('disabled');
