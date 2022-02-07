@@ -67,7 +67,7 @@ function runButtonOnClicked() {
     const base64Image = ImageToBase64();
 
     SetOnSource(base64Image);
-    document.getElementById('share').removeAttribute('disabled');
+    document.getElementById('share').removeAttribute('hidden');
 
     setDownloadLink(base64Image);
 }
