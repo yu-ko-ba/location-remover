@@ -58,6 +58,7 @@ async function setDownloadLink(base64Image) {
     const blobImage = await (await fetch(base64Image)).blob();
     const downloadLink = document.getElementById('downloadLink');
     downloadLink.href = window.URL.createObjectURL(blobImage);
+    downloadLink.removeAttribute('hidden');
 }
 
 
@@ -69,7 +70,6 @@ function runButtonOnClicked() {
     document.getElementById('share').removeAttribute('disabled');
 
     setDownloadLink(base64Image);
-    downloadButton.removeAttribute('hidden');
 }
 
 
@@ -126,11 +126,11 @@ if ('serviceWorker' in navigator) {
 }
 
 // <input>でファイルが選択されたときの処理
+const fileInput = document.getElementById('example');
 // changeイベントで呼び出す関数
 const handleFileSelect = () => {
     clearPreview();
 
-    const fileInput = document.getElementById('example');
     const files = fileInput.files;
     for (let i = 0; i < files.length; i++) {
         previewFile(files[i]); // 1つ1つのファイルデータはfiles[i]で取得できる
