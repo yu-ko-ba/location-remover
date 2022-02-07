@@ -29,3 +29,14 @@ div {
 #output_picture {
     width: 80%;
 }
+
+a {
+    color: #1565c0;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+
+    padding-left: 5px;
+}

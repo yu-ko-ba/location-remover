@@ -19,31 +19,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <meta name="theme-color" content="#1565c0" />
     </head>
-<body>
-    <header>
-        <h1 id="header">Location Remover</h1>
-    </header>
-    <h2 class="aaa">Exif情報を削除したい画像を選択してください</h2>
+    <body>
+        <header>
+            <h1 id="header">Location Remover</h1>
+        </header>
+        <h2 class="aaa">Exif情報を削除したい画像を選択してください</h2>
 
-    <input type="file" id="example" accept="image/jpeg" disabled>
+        <input type="file" id="example" accept="image/jpeg" disabled>
 
-    <!--プレビュー画像部-->
-    <div id="preview"></div>
+        <!--プレビュー画像部-->
+        <div id="preview"></div>
 
-    <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
+        <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
 
-    <br />
-    <br />
+        <br />
+        <br />
 
-    <!-- 削除後の画像を表示 -->
-    <img src="" id="output_picture">
+        <!-- 削除後の画像を表示 -->
+        <img src="" id="output_picture">
 
-    <br />
+        <br />
 
-    <!-- ダウンロードリンク -->
-    <a id="downloadLink" download="image.jpg" hidden>ダウンロード</a>
+        <!-- ダウンロードリンク -->
+        <a id="downloadLink" download="image.jpg" hidden>ダウンロード</a>
 
-    <!-- Web Share APIの利用 -->
-    <button id="share" onclick="share()" hidden>シェアする</button>
-</body>
+        <!-- Web Share APIの利用 -->
+        <button id="share" onclick="share()" hidden>シェアする</button>
+        <footer>
+            <small><a href="https://github.com/tacg0909/location-remover" target="_blank" rel="noopener noreferrer">ソースコード</a></small>
+        </footer>
+    </body>
 </html>
