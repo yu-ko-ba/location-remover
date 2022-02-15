@@ -23,30 +23,25 @@
     </head>
     <body>
         <header id="header">Location Remover</header>
-        <h2 class="aaa">Exif情報を削除したい画像を選択してください</h2>
+        <h2>Exif情報を削除したい画像を選択してください</h2>
 
-        <input type="file" id="example" accept="image/jpeg" disabled>
+        <p><input type="file" id="example" accept="image/jpeg" disabled></p>
 
         <!--プレビュー画像部-->
         <div id="preview"></div>
 
-        <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
-
-        <br />
-        <br />
+        <p><button id="run_button" onclick="runButtonOnClicked();" hidden>Exif削除</button></p>
 
         <!-- 削除後の画像を表示 -->
-        <img src="" id="output_picture">
+        <p><img src="" id="output_picture"></p>
 
-        <br />
-
+        <p>
         <!-- ダウンロードリンク -->
         <a id="downloadLink" download="image.jpg" hidden>ダウンロード</a>
-
         <!-- Web Share APIの利用 -->
         <button id="share" onclick="share()" hidden>シェアする</button>
-        <footer>
-            <small><a href="https://github.com/tacg0909/location-remover" target="_blank" rel="noopener noreferrer">ソースコード</a></small>
-        </footer>
+        </p>
+
+        <footer><a href="https://github.com/tacg0909/location-remover" target="_blank" rel="noopener noreferrer">ソースコード</a></footer>
     </body>
 </html>
