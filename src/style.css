@@ -1,3 +1,25 @@
+@font-face {
+    font-family: 'Nyashi';
+    src: url('Nyashi.woff2') format('woff2');
+}
+
+
+@font-face {
+    font-family: 'Jiyucho';
+    src: url('Jiyucho.woff2') format('woff2');
+}
+
+
+* {
+    font-family: 'Nyashi', sans-serif;
+}
+
+
+header {
+    font-family: 'Jiyucho', sans-serif;
+}
+
+
 body {
     margin: 0;
     padding-bottom: env(safe-area-inset-bottom);
