@@ -2,6 +2,7 @@
 <html lang="ja">
     <head>
         <title>Location Remover</title>
+        <link rel="stylesheet" href="src/destyle.min.css">
         <link rel="stylesheet" href="src/style.css">
         <link rel="manifest" href="manifest.json">
         <link rel="apple-touch-icon" href="icons/maskable_icon_x192.png">
@@ -21,33 +22,27 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
     </head>
     <body>
-        <header>
-            <h1 id="header">Location Remover</h1>
-        </header>
-        <h2 class="aaa">Exif情報を削除したい画像を選択してください</h2>
+        <header id="header">Location Remover</header>
+        <h2>Exif情報を削除したい画像を選択してください</h2>
 
-        <input type="file" id="example" accept="image/jpeg" disabled>
+        <p><input type="file" id="example" accept="image/jpeg" disabled></p>
 
         <!--プレビュー画像部-->
         <div id="preview"></div>
 
-        <button id="run_button" onclick="runButtonOnClicked();" disabled>Exif削除</button>
-
-        <br />
-        <br />
+        <p><button id="run_button" onclick="runButtonOnClicked();" hidden>Exif削除</button></p>
 
         <!-- 削除後の画像を表示 -->
-        <img src="" id="output_picture">
+        <p><img src="" id="output_picture"></p>
 
-        <br />
-
+        <p>
         <!-- ダウンロードボタン -->
         <button id="download" onclick="download();" hidden>ダウンロード</button>
 
         <!-- Web Share APIの利用 -->
         <button id="share" onclick="share()" hidden>シェアする</button>
-        <footer>
-            <small><a href="https://github.com/tacg0909/location-remover" target="_blank" rel="noopener noreferrer">ソースコード</a></small>
-        </footer>
+        </p>
+
+        <footer><a href="https://github.com/tacg0909/location-remover" target="_blank" rel="noopener noreferrer">ソースコード</a></footer>
     </body>
 </html>

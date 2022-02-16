@@ -13,12 +13,13 @@ function previewFile(file) {
         img.id = "previewImage"
         img.src = imageUrl; // 画像のURLをimg要素にセット
         preview.appendChild(img); // #previewの中に追加
+
+        // 画像をアップロードし終わってからButton要素の非表示を削除
+        document.getElementById('run_button').removeAttribute('hidden');
     }
 
     // いざファイルを読み込む
     reader.readAsDataURL(file);
-    // 画像をアップロードし終わってからButton要素を無効化を削除
-    document.getElementById('run_button').removeAttribute('disabled');
 }
 
 
