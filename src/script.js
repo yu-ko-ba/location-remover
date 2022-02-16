@@ -1,3 +1,6 @@
+let blobCache
+
+
 function previewFile(file) {
     // プレビュー画像を追加する要素
     // FileReaderオブジェクトを作成
@@ -54,22 +57,29 @@ function SetOnSource(picture) {
 }
 
 
-async function setDownloadLink(base64Image) {
-    const blobImage = await (await fetch(base64Image)).blob();
-    const downloadLink = document.getElementById('downloadLink');
-    downloadLink.href = window.URL.createObjectURL(blobImage);
-    downloadLink.removeAttribute('hidden');
-}
-
-
 // 実行ボタン押されたときにbase64形式に変換した画像を表示する関数
 function runButtonOnClicked() {
     const base64Image = ImageToBase64();
 
     SetOnSource(base64Image);
-    document.getElementById('share').removeAttribute('hidden');
 
-    setDownloadLink(base64Image);
+    // 即時関数の実行
+    (async function() {
+        // base64形式の画像(URL)をBlob形式に変換してグローバル変数に保存しておく
+        blobCache = await(await fetch(base64Image)).blob();
+        document.getElementById('download').removeAttribute('hidden');
+        document.getElementById('share').removeAttribute('hidden');
+    }());
+}
+
+
+// ダウンロードボタンが押されたときの処理
+function download() {
+    // 内部的にダウンロードリンクを作ってそれをクリックする
+    const downloadLink = document.createElement("a");
+    downloadLink.download = "image.jpg";
+    downloadLink.href = window.URL.createObjectURL(blobCache);
+    downloadLink.click();
 }
 
 
@@ -97,13 +107,8 @@ function showErrorAlert() {
 
 // シェア用ボタンの動作部分(画像を投稿するにはこれしかない？)
 async function share() {
-    const share_picture = document.getElementById('output_picture').src;
-
-    // base64形式の画像(URL)をBlob形式に変換
-    const blob = await(await fetch(share_picture)).blob();
-
     // BlobをFileオブジェクトに変換
-    const imageFile = new File([blob], 'image.jpg', {type: "image/jpeg"});
+    const imageFile = new File([blobCache], 'image.jpg', {type: "image/jpeg"});
 
     // Web Share APIを呼び出す
     try {
