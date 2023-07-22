@@ -2,4 +2,4 @@
 画像からメタデータを削除するWebアプリです
 
 ## リンク
-https://tacg0909.github.io/location-remover/
+https://yu-ko-ba.github.io/location-remover/
